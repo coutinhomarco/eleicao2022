@@ -12,7 +12,7 @@ function App() {
         return data
       });
       setLoading(false);
-  }, 10000);
+  }, 7000);
   return (
     <div className="App">
       <header className="App-header">
