@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 94vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,24 +23,30 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
- 
 footer, a:link, a:visited {
+
+  height: auto;
   background-color: #282c34;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: row;
-  /* align-items: center;  */
+  align-items: top; 
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 p{
+  margin: 10px;
   display: flex;
   /* align-content: space-between;
    */
   justify-content: space-evenly;
   width: 300px;
+}
+
+h3 {
+  margin-bottom: 0;
 }
 
 .App-link {
