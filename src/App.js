@@ -17,10 +17,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         {
-          data?.time &&         (<h3>Ultima atualização: <span>{data?.time.getHours().toString()}:{String(data?.time.getMinutes()).padStart(2, "0")}:{String(data?.time.getSeconds()).padStart(2, "0")}</span></h3>)
+          data?.time &&         (<h1>Ultima atualização: <span>{data?.time.getHours().toString()}:{String(data?.time.getMinutes()).padStart(2, "0")}:{String(data?.time.getSeconds()).padStart(2, "0")}</span></h1>)
         }
         {
-           data?.totalapurado && (<h4>Seções apuradas: {data.totalapurado}%</h4>)
+           data?.totalapurado && (<h2>Seções apuradas: {data.totalapurado}%</h2>)
         }
           {
             loading && (<tr><td>Carregando...</td></tr>)

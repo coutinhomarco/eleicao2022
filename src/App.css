@@ -23,6 +23,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+th,td {
+  padding: 7px;
+}
+h2 {
+  margin: 15px;
+}
+table{
+  width: 70vw;
+}
+
 footer, a:link, a:visited {
 
   height: auto;
