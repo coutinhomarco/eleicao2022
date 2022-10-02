@@ -18,7 +18,7 @@ function App() {
       return fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
       .then(response => response.json())
       .then(data => {
-        setData({data: data.cand, time: data.ht, totalapurado: data.psi})
+        setData({data: data.cand, time: data.ht, totalapurado: data.pst})
         setLoading(false);
       });
     }
