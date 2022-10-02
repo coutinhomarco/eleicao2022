@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   setTimeout(async () => {
     const a = await fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
       .then(response => response.json())
@@ -10,24 +11,26 @@ function App() {
         setData({data: data.cand, time: new Date(), totalapurado: data.psi})
         return data
       });
-
+      setLoading(false);
   }, 10000);
   return (
     <div className="App">
       <header className="App-header">
         {
-           data?.totalapurado && (<p>Seções apuradas: {data.totalapurado}</p>)
+          data?.time &&         (<h3>Ultima atualização: <span>{data?.time.getHours().toString()}:{String(data?.time.getMinutes()).padStart(2, "0")}:{String(data?.time.getSeconds()).padStart(2, "0")}</span></h3>)
         }
         {
-          data?.time &&         (<p>Ultima atualização: <span>{data?.time.getHours().toString()}:{String(data?.time.getMinutes()).padStart(2, "0")}:{String(data?.time.getSeconds()).padStart(2, "0")}</span></p>)
-
+           data?.totalapurado && (<h4>Seções apuradas: {data.totalapurado}%</h4>)
         }
+          {
+            loading && (<tr><td>Carregando...</td></tr>)
+          }
         <table>
-          <tr>
+          {data && (<tr>
             <th>Candidato</th>
             <th>Porcentagem de votos</th>
             <th>Votos</th>
-          </tr>
+          </tr>)}
         {(data && !data.data) ? <tr><td>Carregando...</td></tr> : data?.data?.map((item) => {
           return (<tr>
             <td>{item.nm}</td>
