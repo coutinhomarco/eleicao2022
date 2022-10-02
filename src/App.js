@@ -40,7 +40,7 @@ function App() {
         })}
         </table>
       </header>
-      <footer><p>Feito por <a href="https://www.linkedin.com/in/coutinhomarco/">Marco</a></p></footer>
+      <footer><p>Feito por <a target="_blank" href="https://www.linkedin.com/in/coutinhomarco/" rel="noreferrer">Marco</a></p></footer>
     </div>
   );
 }
