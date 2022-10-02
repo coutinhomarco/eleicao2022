@@ -5,19 +5,31 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   setTimeout(async () => {
-    const a = await fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
+    await fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
       .then(response => response.json())
       .then(data => {
-        setData({data: data.cand, time: new Date(), totalapurado: data.psi})
+        setData({data: data.cand, time: data.ht, totalapurado: data.psi})
         return data
       });
       setLoading(false);
-  }, 7000);
+  }, 20000);
+  useEffect(() => {
+    const asyncF = async () => {
+      return fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
+      .then(response => response.json())
+      .then(data => {
+        setData({data: data.cand, time: data.ht, totalapurado: data.psi})
+        setLoading(false);
+      });
+    }
+    asyncF();
+    
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
         {
-          data?.time &&         (<h1>Ultima atualização: <span>{data?.time.getHours().toString()}:{String(data?.time.getMinutes()).padStart(2, "0")}:{String(data?.time.getSeconds()).padStart(2, "0")}</span></h1>)
+          data?.time &&         (<h1>Ultima atualização: <span>{data?.time}</span></h1>)
         }
         {
            data?.totalapurado && (<h2>Seções apuradas: {data.totalapurado}%</h2>)
