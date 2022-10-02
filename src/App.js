@@ -40,6 +40,7 @@ function App() {
         })}
         </table>
       </header>
+      <footer><p>Feito por <a href="https://www.linkedin.com/in/coutinhomarco/">Marco</a></p></footer>
     </div>
   );
 }
