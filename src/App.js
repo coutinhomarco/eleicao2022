@@ -12,7 +12,7 @@ function App() {
         return data
       });
       setLoading(false);
-  }, 20000);
+  }, 10000);
   useEffect(() => {
     const asyncF = async () => {
       return fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
