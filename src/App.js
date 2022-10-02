@@ -1,22 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [data, setData] = useState(null);
+  setTimeout(() => {
+    fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
+      .then(response => response.json())
+      .then(data => setData({data: data.cand, time: new Date()}));
+  }, 4000);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {
+          data?.time &&         (<p>Ultima atualização: <span>{data?.time.getHours().toString()}:{data?.time.getMinutes().toString()}:{data?.time.getSeconds().toString()}</span></p>)
+
+        }
+        <table>
+        {(data && !data.data) ? <tr><td>Carregando...</td></tr> : data?.data?.map((item) => {
+          return (<tr>
+            <td>{item.nm}</td>
+            <td>{item.pvap}%</td>
+          </tr>)
+        })}
+        </table>
       </header>
     </div>
   );
