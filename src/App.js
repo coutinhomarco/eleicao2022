@@ -35,7 +35,7 @@ function App() {
           return (<tr>
             <td>{item.nm}</td>
             <td>{item.pvap}%</td>
-            <td>{item.vap.toString()}</td>
+            <td>{Number(item.vap).toLocaleString('en-US')}</td>
           </tr>)
         })}
         </table>
