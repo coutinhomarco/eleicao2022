@@ -5,25 +5,16 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   setTimeout(async () => {
-    await fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', { mode: 'no-cors'})
-      .then(response => response.json())
-      .then(data => {
-        setData({data: data.cand, time: data.ht, totalapurado: data.psi})
-        return data
-      });
-      setLoading(false);
-  }, 10000);
-  useEffect(() => {
-    const asyncF = async () => {
-      return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', { mode: 'no-cors'})
-      .then(response => response.json())
-      .then(data => {
-        setData({data: data.cand, time: data.ht, totalapurado: data.pst})
-        setLoading(false);
-      });
-    }
     asyncF();
-    
+  }, 10000);
+  const asyncF = async () => {
+      const data = await  fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', { mode: 'no-cors'})
+      const dataJson = await data.json()
+      setData({data: dataJson.cand, time: dataJson.ht, totalapurado: dataJson.pst})
+    setLoading(false);
+    }
+  useEffect(() => {
+    asyncF();
   }, [])
   return (
     <div className="App">
