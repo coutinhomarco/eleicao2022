@@ -24,6 +24,7 @@ function App() {
         setData({data: data.cand, time: data.ht, totalapurado: data.pst})
         setLoading(false);
       }
+      asyncF()
   }, [])
   return (
     <div className="App">
