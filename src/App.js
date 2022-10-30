@@ -13,9 +13,10 @@ function App() {
          .then(response => response.json())
       .then(data => {
         setData({data: data.cand, time: new Date(), totalapurado: data.psi})
-        return data
+             setLoading(false);
+ return data
       });
-      setLoading(false);
+
     }
   useEffect(() => {
     const asyncF = async () => {
@@ -24,9 +25,10 @@ function App() {
          .then(response => response.json())
       .then(data => {
         setData({data: data.cand, time: new Date(), totalapurado: data.psi})
-        return data
+             setLoading(false);
+ return data
       });
-      setLoading(false);
+
       }
       asyncF()
   }, [])
