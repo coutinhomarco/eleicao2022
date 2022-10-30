@@ -9,7 +9,7 @@ function App() {
   }, 10000);
   const asyncF = async () => {
     const fetchMethod = {'method': 'GET', 'mode': 'no-cors'}
-      return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
+      return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json')
          .then((response) => {return response.json()})
       .then((data) => {
         setData({data: data.cand, time: new Date(), totalapurado: data.psi})
@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const asyncF = async () => {
       const fetchMethod = {'method': 'GET', 'mode': 'no-cors'}
-        return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
+        return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json')
          .then((response) =>{ return response.json()})
       .then(data => {
         setData({data: data.cand, time: new Date(), totalapurado: data.psi})
