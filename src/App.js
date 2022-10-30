@@ -10,7 +10,6 @@ function App() {
   const asyncF = async () => {
     const fetchMethod = {'method': 'GET', 'mode': 'no-cors'}
       return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
-        .then((data) => data.json())
         .then((data) => {
       setData({data: data.cand, time: data.ht, totalapurado: data.pst})
       setLoading(false);
@@ -19,10 +18,8 @@ function App() {
   useEffect(() => {
     const asyncF = async () => {
       const fetchMethod = {'method': 'GET', 'mode': 'no-cors'}
-        const fetchData = await fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
-        const data = await fetchData.json()
+        const data = await fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
         setData({data: data.cand, time: data.ht, totalapurado: data.pst})
-        setLoading(false);
       }
       asyncF()
   }, [])
