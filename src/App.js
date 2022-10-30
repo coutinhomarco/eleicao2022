@@ -11,8 +11,8 @@ function App() {
     const fetchMethod = {'method': 'GET', 'mode': 'no-cors'}
       return fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', fetchMethod)
         .then((data) => data.json())
-        .then((dataa) => {
-      setData({data: dataa.cand, time: dataa.ht, totalapurado: dataa.pst})
+        .then((data) => {
+      setData({data: data.cand, time: data.ht, totalapurado: data.pst})
       setLoading(false);
       });
     }
