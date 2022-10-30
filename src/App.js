@@ -8,7 +8,7 @@ function App() {
     asyncF();
   }, 10000);
   const asyncF = async () => {
-      const data = await  fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json', { mode: 'no-cors'})
+      const data = await  fetch('https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json')
       const dataJson = await data.json()
       setData({data: dataJson.cand, time: dataJson.ht, totalapurado: dataJson.pst})
     setLoading(false);
