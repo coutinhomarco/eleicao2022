@@ -16,8 +16,6 @@ function App() {
         return data
       });
       setLoading(false);
-        
-      });
     }
   useEffect(() => {
     const asyncF = async () => {
